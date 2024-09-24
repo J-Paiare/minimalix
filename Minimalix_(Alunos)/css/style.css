@@ -1,0 +1,412 @@
+/* reset basico inicial */
+/* aplica o estilo a todos os elementos, assim como os pseudo elementos ::after e ::before*/
+*,
+*::after
+*::before {
+    /* define que o tamanho do box (box-sizing) deve incluir o padding e as bordas dentro da largura e autura definidas */
+    box-sizing: border-box;
+}
+
+/* remove as margens e o padding para um reset basico em elements comuns */
+body,
+h1,
+h2,
+h3,
+p,
+figure {
+    margin: 0;
+    padding: 0;
+    
+}
+
+img {
+    /* define que a largura maxima das imagens sera 100% , tornando-as responsitivas */
+    max-width: 100%; /*deixa todas as imagens responsitivas*/
+}
+
+html {
+    /* define o tamanho base da fonte do documento */
+    font-size: 14px;
+}
+
+body {
+    /* define a cor do findo e a familia de fontes usada no corpo da pagina */
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+    /* remove sublinhaddo dos links    */
+    text-decoration: none;
+
+}
+
+h1,
+nav {
+    /* converte o texto para letras maiusculas */
+    text-transform: uppercase; /* deixa as letras maiusculas */
+}
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+
+h1 a {
+    /* define cor de fundo, cor do texto, padding e borda arredondada para o link dentro do h1 */
+    color: white;
+    background-color: black;
+
+    /* 0.3rem: o primeiro valor representa o espaçamento vertical (em cima e em baixo do conteudo). 0.3rem + 14px = 4.2px
+    
+    1rem = O segundo valor representa o espaçamento horizontal (a esquerda e a direita) 1rem= 1x 14px = 14px */
+    padding: 0.3rem 1rem /*relativo a 14px (font size declarado a cima)*/;
+    border-radius: 5px;
+}
+
+header {
+    /* define o fundo branco, posiçao fixa, e z-index para garantir que o cabeçalho esteja sempre visivel */
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 9999; /*para aparecer na frente (garantir)*/
+}
+
+header .limitador {
+    /* define um layout flexbox para alinhar o conteudo do cabeçalho */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.limitador {
+/*  define a largura maxima do conteudo e o centraliza na pagina */
+max-width: 1100px;
+width: 95vw;
+margin: auto;
+}
+
+.menu {
+    /* remove os estilos de lista padrao */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+nav { 
+    /* define a largura do elemento de navegaçao */
+    width: 65%;
+
+}
+
+nav h2 {
+    /* alinha o texto do h2 a direita */
+    text-align: right;
+
+}
+
+h2 a {
+    /* define a cor do link dentro do h2 */
+    color: black;
+}
+
+.menu a {
+    /* define estilo dos links dentro do menu */
+    color: black;
+    font-weight: bold;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    height: 50%;
+    align-items: center;
+
+}
+
+.menu a:hover 
+.menu a:active {
+    /* define o estilo para os links do menu quando o mouse passa por cima (hover) ou quando estao sendo clicados (active)*/
+    background-color: gainsboro; /* muda a cor*/
+
+}
+
+
+/* conteudo principal "main" area destaque */
+
+.destaque {
+    /* define o fundo da section com uma imagem e configura o efeito parallax */
+    background-image: url(../imagens/fundo-destaque.jpg);
+    height: 90vh;
+    color: white;
+    background-size: cover;
+    background-attachment:fixed ;
+    text-align: center;
+}
+
+
+.destaque h2 {
+    /* define um tamanho de fonte responditivo usando a funçao clamp */
+    font-size: clamp(2rem, 8vw, 7rem); /* texto responditivo*/
+    animation-name: fadeIn; /* cria animaçao*/
+    animation-duration: 1.5s; /* duraçao*/
+
+}
+
+.destaque p {
+    /* define o tamanho da fonte responsitivo para o paragrafo */
+    /* camp (MIN, IDEAL, MAX )*/
+    font-size: clamp(1.6rem, 2vw, 4rem);
+    animation: fadeIn 1.5s 1s backwards;
+}
+
+@keyframes fadeIn {
+    /* define uma animaçao chamada fadeIn*/
+    /* estado inicial */
+    from {
+        opacity: 0; /* o elemento começa trasnparente*/
+
+    }
+
+    /* estado final */
+    to {
+        opacity: 1; /*totalomente opaco*/
+    }
+}
+
+/* conteudo secundario "section" area de texto + 3 imagens */
+
+.front-end,
+.localizacao {
+    /* centraliza o texto nos elementos com as classes */
+    text-align: center;
+}
+
+section h2 {
+    /*centraliza e adiciona padding */
+    text-align: center;
+    padding: 1rem;
+
+}
+
+section p {
+    /* adiciona padding vertical */
+    padding: 0.5rem 0;
+
+}
+
+figure {
+    /* centraliza o centeudo das fiduras e define margens verticais */
+    text-align: center;
+    margin: 1rem 0;
+
+}
+
+/* conteudo secodario "section" hisotria da internet */
+
+.historia {
+    /* aplica uma imagem de fundo com elefeito de parallax e centraliza do texto */
+    background-image: url(../imagens/fundo-madeira.jpg);
+    background-attachment: fixed;
+    background-size:cover;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.historia h2 {
+    /* define a cordo texto e aplica sombra */
+    color: #fff;
+    text-shadow: #000 1px 1px 1px;
+
+}
+
+.historia iframe {
+    /* limitaa largura maxima do iframe dentro da classe */
+    max-width: 800px;
+
+}
+/* conteudo secundario "section" area de mapa "google maps" */
+
+iframe {
+    /* define a largura completa do iframe e adiciona margem inferior */
+    width: 100%;
+    border: none;
+    margin-bottom: 130px;
+
+}
+
+.contato {
+    /* define uma amrgem inferior para a seçao de contato */
+    margin-bottom: 150px;
+}
+
+/* rodape da pagina */
+
+footer {
+    /* define o estilo, cor de fundo e cor de texto e centraliza*/
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    height: 14vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+}
+
+/* media queries "responsividade para direfentes telas */
+
+@media screen and (min-width: 768px) {
+    /* estilos aplicados a telas maiores que 768 */
+    .menu {
+        /* alinha o menu em flexbox e ajusta o espaçamento */
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+
+    }
+
+    .menu a {
+        /* adiciona padding horizontal */
+        padding: 0 1rem;
+    }
+
+    html {
+        /* aumenta o tamanho da base para 18px */
+        font-size:  18px;
+
+    }
+    header .limitador {
+        /* define a autura da section destaque */
+        height: 15vh;
+    }
+
+    .destaque {
+        /* ajusta a altura */
+        height: 85vh;
+    }
+
+}
+
+/* formatando paginas internas */
+
+.conteudo {
+    /* define a cor de fundo e arredonda os cantos da area de conteudo */
+    background-color: whitesmoke;
+    padding: 0.7rem;
+    border-radius: 7px;
+}
+
+table,
+th,
+td {
+    /* define bordas nas tabelas e colapsa as bordas */
+    border: 2px solid black;
+    border-collapse : collapse; /* junta as bordas*/
+}
+
+table {
+    /* define a larg8ra maxima e centraliza */
+    width: 80%;
+    margin: auto;
+    max-width: 700px;
+}
+
+th {
+    /* define a cor de fundo e texto para os cabeçalhos da tabela */
+    background-color: #000;
+    color: #fff;
+}
+
+td {
+    /* define cor de fundo para as celulas */
+    background-color: #fff;
+
+}
+
+th,
+td {
+    /* define a largura das colunas e padding nas ceulas */
+    width: 33%;
+    padding: 0.5rem;
+}
+
+/* estilos para a primeira celula de cada linha
+
+deixa centralizado a coluna de ptazo de entrega */ 
+td:nthchild(1) {
+    text-transform: uppercase;
+}
+/* centraliza o texto na segunda celula de cada linha */ 
+td:nth-child(2) { 
+    text-align: center;
+}
+
+/* define a cor do texto para a terceira celula */
+/* muda a cor do texto da coluna */
+td:nth-child(3) {
+    color: blue;
+}
+
+caption {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* formatando o formulario */
+form {
+    /* define o tamanho maximo e centraliza o formulario */
+    max-width: 500px;
+    width: 95%;
+    margin: auto;
+    background-color: whitesmoke;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+/* seletor: not()
+udo para criar exeçoes. no exemplo abaixo, formatamos todos os inputs menos radio e checkbox */
+input:not([type="radio"]):not([type="checkbox"]),
+ select,
+ textarea {
+    /* define a largura e altura dos inputs e textarea, remove bordas e aplica sombra */
+    width: 100%;
+    height: 40px;
+    border: none;
+    padding: 2%;
+    box-shadow: rgb(82, 76, 76) 0 0 1px inset;
+ }
+
+ textarea {
+    /* define altura altomatica */
+    height: auto;
+
+ }
+
+ button {
+    /* define o estilo do botao */
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    font-weight: bold;
+    margin-top: 0.2rem;
+
+ }
+ 
+ button:hover,
+ button:focus {
+    /* muda a cor do fundo quando esta em foco ou passar o mouse */
+    background-color: rgb(82, 76, 76);
+    cursor: pointer;
+ }
+
+ form div {
+    /* adiciona uma margem superior aos divs dentro do formulario */
+    margin-top: 1rem;
+ }
